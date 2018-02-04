@@ -1,4 +1,4 @@
-﻿#include "Visuals.h"
+#include "Visuals.h"
 #include "../Core/Math.h"
 #include "../Core/Draw.h"
 #include "../Core/Font.h"
@@ -10,8 +10,6 @@
 #include <fstream>
 #include <iterator>
 #include <vector>
-
-RECT getPlayerBox(C_BaseEntity* pEntity)
 {
 	if (!pEntity)
 		return { 0, 0, 0, 0 };
@@ -76,7 +74,7 @@ RECT getPlayerBox(C_BaseEntity* pEntity)
 	}
 
 	return { (LONG)left, (LONG)bottom, (LONG)right, (LONG)top };
-}
+}*/
 
 void Visuals::PaintTraverse()
 {
@@ -98,11 +96,18 @@ void Visuals::PaintTraverse()
 				if (pEntity->m_iTeamNum() == g_LocalPlayer->m_iTeamNum()) continue;
 				if (pEntity->IsDormant() || !pEntity->IsAlive()) continue;
 
-				auto bBox = getPlayerBox(pEntity);
-				Vector2D top = Vector2D(bBox.left, bBox.top);
+				Vector max = pEntity->GetCollideable()->OBBMaxs();
+				Vector top3D, pos3D;
+				Vector2D top, pos;
+				pos3D = pEntity->m_vecOrigin();
+				top3D = pEntity->m_fFlags() & FL_DUCKING ? pos3D + Vector(0, 0, 56.f) : pos3D + Vector(0, 0, 72.f);
 
-				float height = (bBox.bottom - bBox.top);
-				float width = (bBox.right - bBox.left);
+				if (!Math::WorldToScreen(pos3D, pos) || !Math::WorldToScreen(top3D, top))
+					continue;
+
+				float height = (pos.y - top.y);
+				float width = height / 4.f;
+
 				Color clr = Color(g_Options.BOX[0], g_Options.BOX[1], g_Options.BOX[2]);
 				Color clr1 = Color(g_Options.BOXFill[0], g_Options.BOXFill[1], g_Options.BOXFill[2], g_Options.fillalpha[0]);
 				Color clr2 = Color(g_Options.skelclr[0], g_Options.skelclr[1], g_Options.skelclr[2]);
@@ -117,7 +122,7 @@ void Visuals::PaintTraverse()
 					{
 						if (g_Options.VIS_ESP_Box) ESP_Box(top.x, top.y, width, height, pEntity, clr, clr1);				
 						if (g_Options.VIS_ESP_Name) ESP_Name(top.x, top.y, width, height, pEntity);
-						//if (g_Options.VIS_ESP_Health) //DrawHealth(pos, top, pEntity->m_iHealth());
+						if (g_Options.VIS_ESP_Health) DrawHealth(pos, top, pEntity->m_iHealth());
 						if (g_Options.VIS_ESP_Weapon) ESP_Weapon(top.x, top.y, width, height, pEntity);
 
 						if (g_Options.VIS_ESP_Bone) ESP_Bone(pEntity, clr2);
@@ -130,7 +135,7 @@ void Visuals::PaintTraverse()
 					/*typical drawing, no need to check anything*/
 					if (g_Options.VIS_ESP_Box) ESP_Box(top.x, top.y, width, height, pEntity, clr, clr1);
 					if (g_Options.VIS_ESP_Name) ESP_Name(top.x, top.y, width, height, pEntity);
-				//	if (g_Options.VIS_ESP_Health) //DrawHealth(pos, top, pEntity->m_iHealth());
+					if (g_Options.VIS_ESP_Health) DrawHealth(pos, top, pEntity->m_iHealth());
 					if (g_Options.VIS_ESP_Weapon) ESP_Weapon(top.x, top.y, width, height, pEntity);
 
 					if (g_Options.VIS_ESP_Bone) ESP_Bone(pEntity, clr2);
