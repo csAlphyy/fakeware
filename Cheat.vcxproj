@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Build|Win32">
+      <Configuration>Build</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{00E16B23-6123-4FF2-A005-E8E142540C85}</ProjectGuid>
+    <RootNamespace>csgo_cheat</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <ProjectName>Cheat</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Build|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Build|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Build|Win32'">
+    <OutDir>.</OutDir>
+    <IntDir>tmp\</IntDir>
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Build|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link />
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <AssemblyDebug>true</AssemblyDebug>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Cheat\aim.cpp" />
+    <ClCompile Include="Cheat\FireEventClientSide.cpp" />
+    <ClCompile Include="Cheat\ItemDefinitions.cpp" />
+    <ClCompile Include="Cheat\KitParser.cpp" />
+    <ClCompile Include="Cheat\SequenceProxy.cpp" />
+    <ClCompile Include="Cheat\Skinchanger.cpp" />
+    <ClCompile Include="Cheat\StickerChanger.cpp" />
+    <ClCompile Include="Cheat\TimeWarp.cpp" />
+    <ClCompile Include="Cheat\Visuals.cpp" />
+    <ClCompile Include="colorpicker.cpp" />
+    <ClCompile Include="Core\CreateMove.cpp" />
+    <ClCompile Include="Core\dllmain.cpp" />
+    <ClCompile Include="Core\DrawModelExecute.cpp" />
+    <ClCompile Include="Core\Font.cpp" />
+    <ClCompile Include="Core\globals.cpp" />
+    <ClCompile Include="Core\Hooks.cpp" />
+    <ClCompile Include="Core\InputSys.cpp" />
+    <ClCompile Include="Core\math.cpp" />
+    <ClCompile Include="Core\options.cpp" />
+    <ClCompile Include="Core\PaintTraverse.cpp" />
+    <ClCompile Include="Core\SDK.cpp" />
+    <ClCompile Include="Core\Utilities.cpp" />
+    <ClCompile Include="Core\vfunc_hook.cpp" />
+    <ClCompile Include="grenadeprediction.cpp" />
+    <ClCompile Include="ImGui\imgui.cpp" />
+    <ClCompile Include="ImGui\imgui_demo.cpp" />
+    <ClCompile Include="ImGui\imgui_draw.cpp" />
+    <ClCompile Include="ImGui\imgui_impl_dx9.cpp" />
+    <ClCompile Include="Menu\GUI.cpp" />
+    <ClCompile Include="Menu\Menu.cpp" />
+    <ClCompile Include="SDK\csgostructs.cpp" />
+    <ClCompile Include="SDK\Interfaces\IMaterialSystem.cpp" />
+    <ClCompile Include="SDK\Math\Vector2D.cpp" />
+    <ClCompile Include="SDK\Math\Vector4D.cpp" />
+    <ClCompile Include="SDK\Math\VMatrix.cpp" />
+    <ClCompile Include="SDK\Misc\characterset.cpp" />
+    <ClCompile Include="SDK\Misc\checksum_crc.cpp" />
+    <ClCompile Include="SDK\Misc\checksum_md5.cpp" />
+    <ClCompile Include="SDK\Misc\Color.cpp" />
+    <ClCompile Include="SDK\Misc\Convar.cpp" />
+    <ClCompile Include="SDK\Misc\UtlBuffer.cpp" />
+    <ClCompile Include="SDK\Misc\UtlString.cpp" />
+    <ClCompile Include="SDK\netvars.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cheat\aim.h" />
+    <ClInclude Include="Cheat\Cheats.h" />
+    <ClInclude Include="Cheat\ItemDefinitions.h" />
+    <ClInclude Include="Cheat\KitParser.h" />
+    <ClInclude Include="Cheat\senddatagraph.h" />
+    <ClInclude Include="Cheat\SequenceProxy.h" />
+    <ClInclude Include="Cheat\singleton.hpp" />
+    <ClInclude Include="Cheat\Skinchanger.h" />
+    <ClInclude Include="Cheat\TimeWarp.h" />
+    <ClInclude Include="Cheat\Visuals.h" />
+    <ClInclude Include="Core\Draw.h" />
+    <ClInclude Include="Core\Font.h" />
+    <ClInclude Include="Core\globals.h" />
+    <ClInclude Include="Core\Hooks.h" />
+    <ClInclude Include="Core\InputSys.h" />
+    <ClInclude Include="Core\math.h" />
+    <ClInclude Include="Core\options.h" />
+    <ClInclude Include="Core\RecvProxyHook.h" />
+    <ClInclude Include="Core\SDK.h" />
+    <ClInclude Include="Core\singleton.h" />
+    <ClInclude Include="Core\stdafx.h" />
+    <ClInclude Include="Core\Utilities.h" />
+    <ClInclude Include="Core\vfunc_hook.h" />
+    <ClInclude Include="grenadeprediction.h" />
+    <ClInclude Include="ImGui\imconfig.h" />
+    <ClInclude Include="ImGui\imgui.h" />
+    <ClInclude Include="ImGui\imgui_impl_dx9.h" />
+    <ClInclude Include="ImGui\imgui_internal.h" />
+    <ClInclude Include="ImGui\stb_rect_pack.h" />
+    <ClInclude Include="ImGui\stb_textedit.h" />
+    <ClInclude Include="ImGui\stb_truetype.h" />
+    <ClInclude Include="Menu\GUI.h" />
+    <ClInclude Include="Menu\Menu.h" />
+    <ClInclude Include="OSteamWorks\AppsCommon.h" />
+    <ClInclude Include="OSteamWorks\AppTicketCommon.h" />
+    <ClInclude Include="OSteamWorks\BillingCommon.h" />
+    <ClInclude Include="OSteamWorks\BridgeCommon.h" />
+    <ClInclude Include="OSteamWorks\CCallback.h" />
+    <ClInclude Include="OSteamWorks\CGameID.h" />
+    <ClInclude Include="OSteamWorks\ClientCommon.h" />
+    <ClInclude Include="OSteamWorks\ContentServerCommon.h" />
+    <ClInclude Include="OSteamWorks\ControllerCommon.h" />
+    <ClInclude Include="OSteamWorks\CSteamAPIContext.h" />
+    <ClInclude Include="OSteamWorks\CSteamID.h" />
+    <ClInclude Include="OSteamWorks\ECurrencyCode.h" />
+    <ClInclude Include="OSteamWorks\EResult.h" />
+    <ClInclude Include="OSteamWorks\ESteamAppUpdateStatsQueryType.h" />
+    <ClInclude Include="OSteamWorks\ESteamBufferMethod.h" />
+    <ClInclude Include="OSteamWorks\ESteamError.h" />
+    <ClInclude Include="OSteamWorks\ESteamFindFilter.h" />
+    <ClInclude Include="OSteamWorks\ESteamNotify.h" />
+    <ClInclude Include="OSteamWorks\ESteamPaymentCardType.h" />
+    <ClInclude Include="OSteamWorks\ESteamSeekMethod.h" />
+    <ClInclude Include="OSteamWorks\ESteamServerType.h" />
+    <ClInclude Include="OSteamWorks\ESteamSubscriptionBillingInfoType.h" />
+    <ClInclude Include="OSteamWorks\ESteamSubscriptionStatus.h" />
+    <ClInclude Include="OSteamWorks\EVoiceResult.h" />
+    <ClInclude Include="OSteamWorks\FriendGameInfo.h" />
+    <ClInclude Include="OSteamWorks\FriendsCommon.h" />
+    <ClInclude Include="OSteamWorks\GameCoordinatorCommon.h" />
+    <ClInclude Include="OSteamWorks\GameServerCommon.h" />
+    <ClInclude Include="OSteamWorks\gameserveritem.h" />
+    <ClInclude Include="OSteamWorks\GameServerStatsCommon.h" />
+    <ClInclude Include="OSteamWorks\GameStatsCommon.h" />
+    <ClInclude Include="OSteamWorks\HTTPCommon.h" />
+    <ClInclude Include="OSteamWorks\IClientAppManager.h" />
+    <ClInclude Include="OSteamWorks\IClientApps.h" />
+    <ClInclude Include="OSteamWorks\IClientAudio.h" />
+    <ClInclude Include="OSteamWorks\IClientBilling.h" />
+    <ClInclude Include="OSteamWorks\IClientConfigStore.h" />
+    <ClInclude Include="OSteamWorks\IClientContentServer.h" />
+    <ClInclude Include="OSteamWorks\IClientDepotBuilder.h" />
+    <ClInclude Include="OSteamWorks\IClientDeviceAuth.h" />
+    <ClInclude Include="OSteamWorks\IClientEngine.h" />
+    <ClInclude Include="OSteamWorks\IClientFriends.h" />
+    <ClInclude Include="OSteamWorks\IClientGameCoordinator.h" />
+    <ClInclude Include="OSteamWorks\IClientGameServer.h" />
+    <ClInclude Include="OSteamWorks\IClientGameServerStats.h" />
+    <ClInclude Include="OSteamWorks\IClientGameStats.h" />
+    <ClInclude Include="OSteamWorks\IClientHTTP.h" />
+    <ClInclude Include="OSteamWorks\IClientInventory.h" />
+    <ClInclude Include="OSteamWorks\IClientMasterServerUpdater.h" />
+    <ClInclude Include="OSteamWorks\IClientMatchmaking.h" />
+    <ClInclude Include="OSteamWorks\IClientMatchmakingServers.h" />
+    <ClInclude Include="OSteamWorks\IClientMusic.h" />
+    <ClInclude Include="OSteamWorks\IClientNetworkDeviceManager.h" />
+    <ClInclude Include="OSteamWorks\IClientNetworking.h" />
+    <ClInclude Include="OSteamWorks\IClientProductBuilder.h" />
+    <ClInclude Include="OSteamWorks\IClientRemoteStorage.h" />
+    <ClInclude Include="OSteamWorks\IClientScreenshots.h" />
+    <ClInclude Include="OSteamWorks\IClientShortcuts.h" />
+    <ClInclude Include="OSteamWorks\IClientStreamClient.h" />
+    <ClInclude Include="OSteamWorks\IClientStreamLauncher.h" />
+    <ClInclude Include="OSteamWorks\IClientUGC.h" />
+    <ClInclude Include="OSteamWorks\IClientUnifiedMessages.h" />
+    <ClInclude Include="OSteamWorks\IClientUser.h" />
+    <ClInclude Include="OSteamWorks\IClientUserStats.h" />
+    <ClInclude Include="OSteamWorks\IClientUtils.h" />
+    <ClInclude Include="OSteamWorks\Interface_OSW.h" />
+    <ClInclude Include="OSteamWorks\InventoryCommon.h" />
+    <ClInclude Include="OSteamWorks\ISteam003.h" />
+    <ClInclude Include="OSteamWorks\ISteam004.h" />
+    <ClInclude Include="OSteamWorks\ISteam005.h" />
+    <ClInclude Include="OSteamWorks\ISteam006.h" />
+    <ClInclude Include="OSteamWorks\ISteam2Bridge001.h" />
+    <ClInclude Include="OSteamWorks\ISteam2Bridge002.h" />
+    <ClInclude Include="OSteamWorks\ISteamAppList001.h" />
+    <ClInclude Include="OSteamWorks\ISteamApps001.h" />
+    <ClInclude Include="OSteamWorks\ISteamApps002.h" />
+    <ClInclude Include="OSteamWorks\ISteamApps003.h" />
+    <ClInclude Include="OSteamWorks\ISteamApps004.h" />
+    <ClInclude Include="OSteamWorks\ISteamApps005.h" />
+    <ClInclude Include="OSteamWorks\ISteamApps006.h" />
+    <ClInclude Include="OSteamWorks\ISteamApps007.h" />
+    <ClInclude Include="OSteamWorks\ISteamAppTicket001.h" />
+    <ClInclude Include="OSteamWorks\ISteamBilling001.h" />
+    <ClInclude Include="OSteamWorks\ISteamBilling002.h" />
+    <ClInclude Include="OSteamWorks\ISteamClient006.h" />
+    <ClInclude Include="OSteamWorks\ISteamClient007.h" />
+    <ClInclude Include="OSteamWorks\ISteamClient008.h" />
+    <ClInclude Include="OSteamWorks\ISteamClient009.h" />
+    <ClInclude Include="OSteamWorks\ISteamClient010.h" />
+    <ClInclude Include="OSteamWorks\ISteamClient011.h" />
+    <ClInclude Include="OSteamWorks\ISteamClient012.h" />
+    <ClInclude Include="OSteamWorks\ISteamClient013.h" />
+    <ClInclude Include="OSteamWorks\ISteamClient014.h" />
+    <ClInclude Include="OSteamWorks\ISteamClient015.h" />
+    <ClInclude Include="OSteamWorks\ISteamClient016.h" />
+    <ClInclude Include="OSteamWorks\ISteamClient017.h" />
+    <ClInclude Include="OSteamWorks\ISteamContentServer001.h" />
+    <ClInclude Include="OSteamWorks\ISteamContentServer002.h" />
+    <ClInclude Include="OSteamWorks\ISteamController001.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends001.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends002.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends003.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends004.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends005.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends006.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends007.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends008.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends009.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends010.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends011.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends012.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends013.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends014.h" />
+    <ClInclude Include="OSteamWorks\ISteamFriends015.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameCoordinator001.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameServer002.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameServer003.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameServer004.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameServer005.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameServer006.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameServer007.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameServer008.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameServer009.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameServer010.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameServer011.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameServer012.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameServerStats001.h" />
+    <ClInclude Include="OSteamWorks\ISteamGameStats001.h" />
+    <ClInclude Include="OSteamWorks\ISteamHTTP001.h" />
+    <ClInclude Include="OSteamWorks\ISteamHTTP002.h" />
+    <ClInclude Include="OSteamWorks\ISteamInventory001.h" />
+    <ClInclude Include="OSteamWorks\ISteamMasterServerUpdater001.h" />
+    <ClInclude Include="OSteamWorks\ISteamMatchmaking001.h" />
+    <ClInclude Include="OSteamWorks\ISteamMatchmaking002.h" />
+    <ClInclude Include="OSteamWorks\ISteamMatchmaking003.h" />
+    <ClInclude Include="OSteamWorks\ISteamMatchmaking004.h" />
+    <ClInclude Include="OSteamWorks\ISteamMatchmaking005.h" />
+    <ClInclude Include="OSteamWorks\ISteamMatchmaking006.h" />
+    <ClInclude Include="OSteamWorks\ISteamMatchmaking007.h" />
+    <ClInclude Include="OSteamWorks\ISteamMatchmaking008.h" />
+    <ClInclude Include="OSteamWorks\ISteamMatchmaking009.h" />
+    <ClInclude Include="OSteamWorks\ISteamMatchmakingServers001.h" />
+    <ClInclude Include="OSteamWorks\ISteamMatchmakingServers002.h" />
+    <ClInclude Include="OSteamWorks\ISteamMusic001.h" />
+    <ClInclude Include="OSteamWorks\ISteamNetworking001.h" />
+    <ClInclude Include="OSteamWorks\ISteamNetworking002.h" />
+    <ClInclude Include="OSteamWorks\ISteamNetworking003.h" />
+    <ClInclude Include="OSteamWorks\ISteamNetworking004.h" />
+    <ClInclude Include="OSteamWorks\ISteamNetworking005.h" />
+    <ClInclude Include="OSteamWorks\ISteamOAuth001.h" />
+    <ClInclude Include="OSteamWorks\ISteamRemoteStorage001.h" />
+    <ClInclude Include="OSteamWorks\ISteamRemoteStorage002.h" />
+    <ClInclude Include="OSteamWorks\ISteamRemoteStorage003.h" />
+    <ClInclude Include="OSteamWorks\ISteamRemoteStorage004.h" />
+    <ClInclude Include="OSteamWorks\ISteamRemoteStorage005.h" />
+    <ClInclude Include="OSteamWorks\ISteamRemoteStorage006.h" />
+    <ClInclude Include="OSteamWorks\ISteamRemoteStorage007.h" />
+    <ClInclude Include="OSteamWorks\ISteamRemoteStorage008.h" />
+    <ClInclude Include="OSteamWorks\ISteamRemoteStorage009.h" />
+    <ClInclude Include="OSteamWorks\ISteamRemoteStorage010.h" />
+    <ClInclude Include="OSteamWorks\ISteamRemoteStorage011.h" />
+    <ClInclude Include="OSteamWorks\ISteamRemoteStorage012.h" />
+    <ClInclude Include="OSteamWorks\ISteamScreenshots001.h" />
+    <ClInclude Include="OSteamWorks\ISteamScreenshots002.h" />
+    <ClInclude Include="OSteamWorks\ISteamStreamLauncher001.h" />
+    <ClInclude Include="OSteamWorks\ISteamUGC001.h" />
+    <ClInclude Include="OSteamWorks\ISteamUGC002.h" />
+    <ClInclude Include="OSteamWorks\ISteamUGC003.h" />
+    <ClInclude Include="OSteamWorks\ISteamUnifiedMessages001.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser004.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser005.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser006.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser007.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser008.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser009.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser010.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser011.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser012.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser013.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser014.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser015.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser016.h" />
+    <ClInclude Include="OSteamWorks\ISteamUser017.h" />
+    <ClInclude Include="OSteamWorks\ISteamUserStats001.h" />
+    <ClInclude Include="OSteamWorks\ISteamUserStats002.h" />
+    <ClInclude Include="OSteamWorks\ISteamUserStats003.h" />
+    <ClInclude Include="OSteamWorks\ISteamUserStats004.h" />
+    <ClInclude Include="OSteamWorks\ISteamUserStats005.h" />
+    <ClInclude Include="OSteamWorks\ISteamUserStats006.h" />
+    <ClInclude Include="OSteamWorks\ISteamUserStats007.h" />
+    <ClInclude Include="OSteamWorks\ISteamUserStats008.h" />
+    <ClInclude Include="OSteamWorks\ISteamUserStats009.h" />
+    <ClInclude Include="OSteamWorks\ISteamUserStats010.h" />
+    <ClInclude Include="OSteamWorks\ISteamUserStats011.h" />
+    <ClInclude Include="OSteamWorks\ISteamUtils001.h" />
+    <ClInclude Include="OSteamWorks\ISteamUtils002.h" />
+    <ClInclude Include="OSteamWorks\ISteamUtils003.h" />
+    <ClInclude Include="OSteamWorks\ISteamUtils004.h" />
+    <ClInclude Include="OSteamWorks\ISteamUtils005.h" />
+    <ClInclude Include="OSteamWorks\ISteamUtils006.h" />
+    <ClInclude Include="OSteamWorks\ISteamUtils007.h" />
+    <ClInclude Include="OSteamWorks\MasterServerUpdaterCommon.h" />
+    <ClInclude Include="OSteamWorks\MatchmakingCommon.h" />
+    <ClInclude Include="OSteamWorks\MatchMakingKeyValuePair.h" />
+    <ClInclude Include="OSteamWorks\MatchmakingServersCommon.h" />
+    <ClInclude Include="OSteamWorks\MusicCommon.h" />
+    <ClInclude Include="OSteamWorks\NetworkingCommon.h" />
+    <ClInclude Include="OSteamWorks\OAuthCommon.h" />
+    <ClInclude Include="OSteamWorks\POSIXLibrary.h" />
+    <ClInclude Include="OSteamWorks\RemoteStorageCommon.h" />
+    <ClInclude Include="OSteamWorks\ScreenshotsCommon.h" />
+    <ClInclude Include="OSteamWorks\servernetadr.h" />
+    <ClInclude Include="OSteamWorks\Steam.h" />
+    <ClInclude Include="OSteamWorks\SteamAPI.h" />
+    <ClInclude Include="OSteamWorks\Steamclient.h" />
+    <ClInclude Include="OSteamWorks\SteamclientAPI.h" />
+    <ClInclude Include="OSteamWorks\SteamSalt.h" />
+    <ClInclude Include="OSteamWorks\SteamTypes.h" />
+    <ClInclude Include="OSteamWorks\Steamworks.h" />
+    <ClInclude Include="OSteamWorks\StreamLauncherCommon.h" />
+    <ClInclude Include="OSteamWorks\TSteamApp.h" />
+    <ClInclude Include="OSteamWorks\TSteamAppDependencyInfo.h" />
+    <ClInclude Include="OSteamWorks\TSteamAppLaunchOption.h" />
+    <ClInclude Include="OSteamWorks\TSteamAppStats.h" />
+    <ClInclude Include="OSteamWorks\TSteamAppVersion.h" />
+    <ClInclude Include="OSteamWorks\TSteamDiscountQualifier.h" />
+    <ClInclude Include="OSteamWorks\TSteamElemInfo.h" />
+    <ClInclude Include="OSteamWorks\TSteamError.h" />
+    <ClInclude Include="OSteamWorks\TSteamExternalBillingInfo.h" />
+    <ClInclude Include="OSteamWorks\TSteamGlobalUserID.h" />
+    <ClInclude Include="OSteamWorks\TSteamOfflineStatus.h" />
+    <ClInclude Include="OSteamWorks\TSteamPaymentCardInfo.h" />
+    <ClInclude Include="OSteamWorks\TSteamPaymentCardReceiptInfo.h" />
+    <ClInclude Include="OSteamWorks\TSteamPrepurchaseInfo.h" />
+    <ClInclude Include="OSteamWorks\TSteamPrepurchaseReceiptInfo.h" />
+    <ClInclude Include="OSteamWorks\TSteamProgress.h" />
+    <ClInclude Include="OSteamWorks\TSteamSplitLocalUserID.h" />
+    <ClInclude Include="OSteamWorks\TSteamSubscription.h" />
+    <ClInclude Include="OSteamWorks\TSteamSubscriptionBillingInfo.h" />
+    <ClInclude Include="OSteamWorks\TSteamSubscriptionDiscount.h" />
+    <ClInclude Include="OSteamWorks\TSteamSubscriptionReceipt.h" />
+    <ClInclude Include="OSteamWorks\TSteamSubscriptionStats.h" />
+    <ClInclude Include="OSteamWorks\TSteamUpdateStats.h" />
+    <ClInclude Include="OSteamWorks\UGCCommon.h" />
+    <ClInclude Include="OSteamWorks\UnifiedMessagesCommon.h" />
+    <ClInclude Include="OSteamWorks\UserCommon.h" />
+    <ClInclude Include="OSteamWorks\UserStatsCommon.h" />
+    <ClInclude Include="OSteamWorks\UtilsCommon.h" />
+    <ClInclude Include="OSteamWorks\Win32Library.h" />
+    <ClInclude Include="SDK\csgostructs.h" />
+    <ClInclude Include="SDK\Interfaces\CClientState.h" />
+    <ClInclude Include="SDK\Interfaces\CInput.h" />
+    <ClInclude Include="SDK\Interfaces\IAppSystem.h" />
+    <ClInclude Include="SDK\Interfaces\IBaseClientDll.h" />
+    <ClInclude Include="SDK\Interfaces\IClientEntity.h" />
+    <ClInclude Include="SDK\Interfaces\IClientEntityList.h" />
+    <ClInclude Include="SDK\Interfaces\IClientMode.h" />
+    <ClInclude Include="SDK\Interfaces\IClientNetworkable.h" />
+    <ClInclude Include="SDK\Interfaces\IClientRenderable.h" />
+    <ClInclude Include="SDK\Interfaces\IClientThinkable.h" />
+    <ClInclude Include="SDK\Interfaces\IClientUnknown.h" />
+    <ClInclude Include="SDK\Interfaces\ICollideable.h" />
+    <ClInclude Include="SDK\Interfaces\IConVar.h" />
+    <ClInclude Include="SDK\Interfaces\ICvar.h" />
+    <ClInclude Include="SDK\Interfaces\IEngineSound.h" />
+    <ClInclude Include="SDK\Interfaces\IEngineTrace.h" />
+    <ClInclude Include="SDK\Interfaces\IGameEventmanager.h" />
+    <ClInclude Include="SDK\Interfaces\ILocalize.h" />
+    <ClInclude Include="SDK\Interfaces\IMaterialSystem.h" />
+    <ClInclude Include="SDK\Interfaces\IMDLCache.h" />
+    <ClInclude Include="SDK\Interfaces\IMoveHelper.h" />
+    <ClInclude Include="SDK\Interfaces\IPanel.h" />
+    <ClInclude Include="SDK\Interfaces\IPhysics.h" />
+    <ClInclude Include="SDK\Interfaces\IPrediction.h" />
+    <ClInclude Include="SDK\Interfaces\IRenderView.h" />
+    <ClInclude Include="SDK\Interfaces\ISurface.h" />
+    <ClInclude Include="SDK\Interfaces\IVDebugOverlay.h" />
+    <ClInclude Include="SDK\Interfaces\IVEngineClient.h" />
+    <ClInclude Include="SDK\Interfaces\IViewRender.h" />
+    <ClInclude Include="SDK\Interfaces\IVModelInfoClient.h" />
+    <ClInclude Include="SDK\Interfaces\IVModelRender.h" />
+    <ClInclude Include="SDK\Math\QAngle.h" />
+    <ClInclude Include="SDK\Math\Vector.h" />
+    <ClInclude Include="SDK\Math\Vector2D.h" />
+    <ClInclude Include="SDK\Math\Vector4D.h" />
+    <ClInclude Include="SDK\Math\VMatrix.h" />
+    <ClInclude Include="SDK\Misc\BaseHandle.h" />
+    <ClInclude Include="SDK\Misc\characterset.h" />
+    <ClInclude Include="SDK\Misc\checksum_crc.h" />
+    <ClInclude Include="SDK\Misc\checksum_md5.h" />
+    <ClInclude Include="SDK\Misc\ClientClass.h" />
+    <ClInclude Include="SDK\Misc\Color.h" />
+    <ClInclude Include="SDK\Misc\Convar.h" />
+    <ClInclude Include="SDK\Misc\CUserCmd.h" />
+    <ClInclude Include="SDK\Misc\EHandle.h" />
+    <ClInclude Include="SDK\Misc\Enums.h" />
+    <ClInclude Include="SDK\Misc\GlobalVars.h" />
+    <ClInclude Include="SDK\Misc\glow_outline_effect.h" />
+    <ClInclude Include="SDK\Misc\IHandleEntity.h" />
+    <ClInclude Include="SDK\Misc\KeyValues.h" />
+    <ClInclude Include="SDK\Misc\platform.h" />
+    <ClInclude Include="SDK\Misc\Recv.h" />
+    <ClInclude Include="SDK\Misc\Studio.h" />
+    <ClInclude Include="SDK\Misc\UtlBuffer.h" />
+    <ClInclude Include="SDK\Misc\UtlMemory.h" />
+    <ClInclude Include="SDK\Misc\UtlString.h" />
+    <ClInclude Include="SDK\Misc\UtlVector.h" />
+    <ClInclude Include="SDK\Misc\vfunc.h" />
+    <ClInclude Include="SDK\netvars.h" />
+    <ClInclude Include="skins.h" />
+    <ClInclude Include="Themes.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
